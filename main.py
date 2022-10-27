@@ -25,10 +25,16 @@ def get_location():
 out = get_location()
 
 
-print("IP: " + out.get('ip') + 
-        "\nCity: " + out.get('city') + 
-        "\nRegion: " + out.get('region') + 
-        "\nCountry: " + out.get('country') + 
-        "\nISP: " + out.get('org') + 
-        "\nASN: " + out.get('asn') +
-        "\nCountry code: "+ out.get('country_code'))
+data = "IP: " + out.get('ip') + "\nCity: " + out.get('city') + "\nRegion: " + out.get('region') + "\nCountry: " + out.get('country') + "\nISP: " + out.get('org') + "\nASN: " + out.get('asn') + "\nCountry code: "+ out.get('country_code')
+
+
+
+import pyautogui
+
+
+displayText = 'Send request to IP-API to display IP, Geolocation, Internet Provider, ASN, and Country Code?'
+
+a = pyautogui.confirm(text=displayText, title='Social Coding Application', buttons=['Send', 'Cancel'])
+
+if a=="Send":
+    pyautogui.alert(text=data, title='Social Coding Application', button='OK')
